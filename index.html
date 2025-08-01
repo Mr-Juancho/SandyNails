@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería de Uñas | Uñas Studio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Favicon -->
+  <link rel="icon" href="Imagenes/sandy nails designer.png" sizes="32x32" />
+
+
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Iconos Font Awesome 6 (versión estable) -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer" />
+
+
+</head>
+  
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <nav class="container">
+      <h1 class="logo">Sandy&nbsp;Nails</h1>
+
+      <!-- NUEVO botón -->
+    <button class="nav-toggle" aria-label="Abrir / cerrar menú">
+        <span class="hamburger"></span>
+      </button>
+
+      <ul class="nav-links">
+        
+        <li><a href="#galeria">Servicios</a></li>
+        <li><a href="#Conoceme">Conoceme</a></li>
+        <li><a href="#certificaciones">Certificaciones</a></li>
+        <li><a href="#espacio">Espacio</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Carrusel de imágenes -->
+  <!-- Carrusel principal -->
+  <section class="carousel-container">
+    <div class="carousel-slide">
+      <img src="Imagenes/port1.png" alt="Manicura 1" />
+      <img src="Imagenes/port2.png" alt="Manicura 2" />
+      <img src="Imagenes/port3.png" alt="Manicura 3" />
+    </div>
+
+    <div class="hero-social">
+        <a href="https://wa.me/18643468255"       target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/sandynails31_/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@sandy.lopez3525" target="_blank" rel="noopener" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>          <!-- NUEVO -->
+        </a>
+        <a href="https://www.facebook.com/tu_pagina"       target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://vbeautypure.com/?nbt=nb%3Aadwords%3Ax%3A22590144896%3A%3A&nb_adtype=&nb_kwd=&nb_ti=&nb_mi=&nb_pc=&nb_pi=&nb_ppi=&nb_placement=&nb_si={sourceid}&nb_li_ms=9197498&nb_lp_ms=9197498&nb_fii=&nb_ap=&nb_mt=&utm_source=google&utm_medium=&utm_campaign=&campaignid=22590144896&adgroupid=&adid=&utm_term=&gad_source=1&gad_campaignid=22593843055" target="_blank" rel="noopener" aria-label="V Beauty">
+            <img src="Imagenes/logoV-Photoroom.png" alt="V Beauty" class="social-icon-img" />
+          </a>          
+      </div>
+    <!-- Botón para bajar a galería -->
+    <a  class="scroll-btn"
+    href="https://wa.me/18643468255"
+    target="_blank" rel="noopener noreferrer">
+    Agendar Cita
+    </a>
+    <!-- Dots de navegación -->
+    <div class="carousel-dots">
+      <button class="dot active" data-index="0"></button>
+      <button class="dot" data-index="1"></button>
+      <button class="dot" data-index="2"></button>
+    </div>
+  </section>
+
+  
+
+  <!-- ===== GALERÍA ===== -->
+  <section id="galeria" class="gallery-section container">
+    
+    <!-- Carrusel de Categorías -->
+    <section class="categories-carousel">
+        <button class="cat-btn cat-prev" aria-label="Anterior">&#10094;</button>
+        <div class="categories-wrapper"> 
+            <div class="categories-track">
+            <div class="category-card" data-filter="semipermanente">
+                <img src="Imagenes/aa.png" alt="Semipermanente" />
+                <h3>Semipermanente</h3>
+            </div>
+            <div class="category-card" data-filter="acrilico">
+                <img src="Imagenes/bb.png" alt="Acrílico" />
+                <h3>Acrílico</h3>
+            </div>
+            <div class="category-card" data-filter="buildergel">
+                <img src="Imagenes/ee.png" alt="BuilderGel" />
+                <h3>Builder Gel</h3>
+            </div>
+            <div class="category-card" data-filter="rubber">
+                <img src="Imagenes/ff.png" alt="Rubber" />
+                <h3>Rubber</h3>
+            </div>
+            <div class="category-card" data-filter="acrigel">
+                <img src="Imagenes/bb.png" alt="Acrigel" />
+                <h3>Acrigel</h3>
+            </div>
+            <div class="category-card" data-filter="poligel">
+                <img src="Imagenes/aa.png" alt="Poligel" />
+                <h3>Poligel</h3>
+            </div>
+            <div class="category-card" data-filter="softgel">
+                <img src="Imagenes/ee.png" alt="Softgel" />
+                <h3>Softgel</h3>
+            </div>
+            <div class="category-card" data-filter="arte">
+                <img src="Imagenes/ff.png" alt="arte" />
+                <h3>Arte</h3>
+            </div>
+            <div class="category-card" data-filter="parafina">
+                <img src="Imagenes/aa.png" alt="parafina" />
+                <h3>Parafina</h3>
+            </div>
+            </div>
+        </div>
+
+        <button class="cat-btn cat-next" aria-label="Siguiente">&#10095;</button>
+    </section>
+
+    <!-- ===== INTRO COLECCIÓN ===== -->
+    <section class="intro-collection container">
+        <p class="intro-subtitle">BIENVENIDA A</p>
+        <h2 class="intro-title">SANDY NAILS</h2>
+        <h3 class="intro-heading">Colección Destacada</h3>
+    </section>
+
+        <!-- ===== MENÚ DE PESTAÑAS ===== -->
+    <ul class="gallery-tabs">
+        <li class="tab-item active" data-filter="todo">Todo</li>
+        <li class="tab-item"        data-filter="semipermanente">Semipermanente</li>
+        <li class="tab-item"        data-filter="acrilico">Acrílico</li>
+        <li class="tab-item"        data-filter="buildergel">Builder Gel</li>
+        <li class="tab-item"        data-filter="rubber">Rubber</li>
+        <li class="tab-item"        data-filter="acrigel">Acrigel</li>
+        <li class="tab-item"        data-filter="poligel">Poligel</li>
+        <li class="tab-item"        data-filter="softgel">Softgel</li>
+        <li class="tab-item"        data-filter="arte">Arte</li>
+        <li class="tab-item"        data-filter="parafina">Parafina</li>
+    </ul>
+          
+  
+    
+
+    <!-- Grid de imágenes -->
+    <div class="gallery-grid">
+        <!--Semipermanentes-->
+        <div class="card" data-category="semipermanente">
+            <img src="Imagenes/semipermanente/semis1.jpeg" alt="Semipermanente 1" />
+          </div>
+          <div class="card" data-category="semipermanente">
+            <img src="Imagenes/semipermanente/semis2.jpeg" alt="Semipermanente 2" />
+          </div>
+          <div class="card" data-category="semipermanente">
+            <img src="Imagenes/semipermanente/semis3.jpeg" alt="Semipermanente 3" />
+          </div>
+          <div class="card" data-category="semipermanente">
+            <img src="Imagenes/semipermanente/semis4.jpeg" alt="Semipermanente 4" />
+          </div>
+
+        <!--Acrilico-->
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri2.jpeg" alt="Acrilico 1" />
+        </div>
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri3.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri4.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri5.jpeg" alt="Acrilico 2" />
+        </div>
+
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri7.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri8.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri9.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri10.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri11.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri12.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri13.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri14.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri15.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri16.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri17.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri18.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri19.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri20.jpeg" alt="Acrilico 2" />
+        </div>
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri6.jpeg" alt="Acrilico 2" />
+        </div>
+
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri1.jpeg" alt="Acrilico 2" />
+        </div>
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri21.png" alt="Acrilico 2" />
+        </div>
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri22.png" alt="Acrilico 2" />
+        </div>
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri23.png" alt="Acrilico 2" />
+        </div>
+        <div class="card" data-category="acrilico">
+            <img src="Imagenes/Acrilico/acri24.png" alt="Acrilico 2" />
+        </div>
+
+        <!--Builder Gel-->
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel1.jpeg" alt="gel 1" />
+        </div>
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel2.jpeg" alt="gel 1" />
+        </div>
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel3.jpeg" alt="gel 1" />
+        </div>
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel4.jpeg" alt="gel 1" />
+        </div>
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel5.jpeg" alt="gel 1" />
+        </div>
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel6.jpeg" alt="gel 1" />
+        </div>
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel7.jpeg" alt="gel 1" />
+        </div>
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel8.jpeg" alt="gel 1" />
+        </div>
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel9.jpeg" alt="gel 1" />
+        </div>
+
+
+        <div class="card" data-category="buildergel">
+            <img src="Imagenes/Gel/gel10.jpeg" alt="gel 1" />
+        </div>
+
+        <!--Rubber-->
+
+        <div class="card" data-category="rubber">
+            <img src="Imagenes/Rubber/rubber1.jpeg" alt="rubber 1" />
+        </div>
+
+        <div class="card" data-category="rubber">
+            <img src="Imagenes/Rubber/rubber2.jpeg" alt="rubber 2" />
+        </div>
+
+        <!--Arte-->
+        <div class="card" data-category="arte">
+            <img src="Imagenes/Flores/flor6.jpeg" alt="florers 1" />
+        </div>
+
+        <div class="card" data-category="arte">
+            <img src="Imagenes/Flores/flor5.jpeg" alt="florers 2" />
+        </div>
+
+        <div class="card" data-category="arte">
+            <img src="Imagenes/Flores/flor4.jpeg" alt="florers 3" />
+        </div>
+        <div class="card" data-category="arte">
+            <img src="Imagenes/Flores/flor3.jpeg" alt="florers 4" />
+        </div>
+        <div class="card" data-category="arte">
+            <img src="Imagenes/Flores/flor2.jpeg" alt="florers 5" />
+        </div>
+        <div class="card" data-category="arte">
+            <img src="Imagenes/Flores/flor1.jpeg" alt="florers 6" />
+        </div>
+
+        <!-- Card de parafina con video -->
+        <div class="card" data-category="parafina">
+            <video muted autoplay loop playsinline controls class="gallery-video">
+                <source src="Imagenes/parafina.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+        </video>
+        </div>
+
+
+        <!-- Agrega más tarjetas según necesidad -->
+    </div>
+    <!-- Botón Ver más / Ver menos -->
+    <button id="toggleGallery" class="show-more-btn">Ver más</button>
+
+    <!-- ===== FEATURE BANNER ===== -->
+  
+
+</section>
+<section class="feature-banner" id="Conoceme">
+    <div class="feature-inner">
+        <div class="feature-photo">
+            <img src="Imagenes/mom1.png" alt="Sandy Nails" />
+        </div>
+ 
+        <div class="feature-copy">
+        <p class="feature-sub">Conóceme!</p> <!-- cámbialo si quieres -->
+        <h2 class="feature-title">
+        Tu manicurista latina de confianza!
+        </h2>
+        <p class="feature-text">
+            ¡Hola, soy Sandy! Una manicurista apasionada por crear diseños únicos y modernos. Siempre actualizada con las últimas tendencias y técnicas, usando materiales premium para brindarte resultados impecables y duraderos.
+            </p>
+            
+            ✨ Técnicas innovadoras | 💎 Materiales Premium | 🧼 Ambiente limpio y esterilizado | 📲 Agenda fácilmente
+        </p>
+
+        <div class="btn-group">       <!-- nuevo -->
+            <a href="#certificaciones"class="btn-primary">Certificaciones</a>
+            <a href="https://www.instagram.com/sandynails31_/"
+            target="_blank" rel="noopener noreferrer"class="btn-outline">Agenda tu cita</a>
+          </div>
+          
+       </div>
+   </div>
+</section>
+<!-- ===== CERTIFICACIONES ===== -->
+<section class="cert-section" id="certificaciones">
+    <h2 class="cert-title">Certificaciones</h2>
+    <p class="cert-sub">Avales que respaldan mi trabajo profesional</p>
+  
+    <div class="cert-grid">
+      <!-- CARD 1 – la destacada (ocupa 2 filas en desktop) -->
+      <a href="Imagenes/certificado3.jpeg"
+        class="cert-card"
+        data-lightbox>
+        <img src="Imagenes/certificado2.png"
+            alt="Certificado All Gel">
+        <span class="cert-label">All Gel</span>
+        </a>
+  
+      <!-- resto de certificados -->
+      
+      <a href="Imagenes/certificado5.jpeg" class="cert-card"
+      data-lightbox>
+        <img src="Imagenes/certificado5.jpeg" alt="Técnico en acrílico">
+        <span class="cert-label">Uñas Avanzado</span>
+      </a>
+  
+      <a href="Imagenes/certificado4.jpeg" class="cert-card"
+      data-lightbox>
+        <img src="Imagenes/certificado4.jpeg" alt="Nail Art detallado">
+        <span class="cert-label">Acrílico</span>
+      </a>
+  
+      <a href="Imagenes/certificado6.jpg" class="cert-card"
+      data-lightbox>
+        <img src="Imagenes/certificado6.jpg" alt="Soft Gel">
+        <span class="cert-label">Softgel</span>
+      </a>
+      <a href="Imagenes/certificado7.jpeg" class="cert-card"
+      data-lightbox>
+        <img src="Imagenes/certificado7.jpeg" alt="Acrilico y Refill">
+        <span class="cert-label">Acrilico y Refill</span>
+      </a>
+      <a href="Imagenes/certificado8.jpeg" class="cert-card"
+      data-lightbox>
+        <img src="Imagenes/certificado8.jpeg" alt="Flores en 3D">
+        <span class="cert-label">Flores en 3D</span>
+      </a>
+      <a href="Imagenes/certificado9.jpeg" class="cert-card"
+      data-lightbox>
+        <img src="Imagenes/certificado9.jpeg" alt="Uñas XL y Diseño">
+        <span class="cert-label">Uñas XL y Diseño</span>
+      </a>
+      <a href="Imagenes/certificado9.jpeg" class="cert-card"
+      data-lightbox>
+        <img src="Imagenes/certificado10.jpeg" alt="Social media y Bussiness">
+        <span class="cert-label">Social media y Bussiness</span>
+      </a>
+      <a href="Imagenes/certificado1.png" class="cert-card"
+      data-lightbox>
+        <img src="Imagenes/certificado1.png" alt="Sanidad y practicas de desinfección">
+        <span class="cert-label">Sanidad</span>
+      </a>
+    </div>
+    <button id="toggleCerts" class="show-more-btn">
+        Ver más
+      </button>
+      
+  </section>
+  
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="contacto" class="footer">
+    <p>&copy; 2025 Sandy Nails. Todos los derechos reservados.</p>
+    <p>Contacto: 
+        <a href="tel:+18643468255" class="phone-link">+1 (864) 346-8255</a>
+
+        <button id="copyPhone" class="copy-btn" aria-label="Copiar teléfono">
+            Copiar
+          </button>
+    </p>
+
+    <p>instagram: 
+        <a href="https://www.instagram.com/sandynails31_/" target="_blank" rel="noopener noreferrer"
+        class="footer-link">sandynails31_</a>
+    </p>
+  </footer>
+
+  <!-- JavaScript externo -->
+  <script defer src="script.js"></script>
+  <!-- ===== LIGHTBOX ===== -->
+  <div id="lightbox" class="lightbox hidden">
+    <span class="close">&times;</span>
+    <img src="" alt="Vista ampliada" />
+  </div>
+</body>
+</html>

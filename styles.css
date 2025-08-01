@@ -1,0 +1,680 @@
+/* --------------------------------------------------
+   Sandy Nails – Styles (v2) 22‑Jul‑2025
+   Limpio, responsive y sin scroll horizontal
+--------------------------------------------------*/
+
+/* ========= Reset & global safety ================= */
+html,body{
+    width:100%;
+    max-width:100%;      /* evita que algo exceda 100 vw            */
+    overflow-x:hidden;   /* bloquea barras laterales                */
+    margin:0;
+    padding:0;
+    scroll-padding-top:60px; /* coincide con altura navbar compacta */
+    font-family:"Poppins",sans-serif;
+    color:#1a1a1a;
+    background:#fafafa;
+    line-height:1.5;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  
+  :root{
+    --accent:#d9a6f2;
+    --bg-light:#fafafa;
+    --bg-dark:#ffffff;
+    --text-dark:#1a1a1a;
+    --shadow:10px 8px 20px rgba(0,0,0,.3);
+    --shadow-card:0 6px 16px rgba(0,0,0,.28);
+    --shadow-card-hover:0 12px 24px rgba(0,0,0,.18);
+  }
+  
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  
+  /* ========= NAVBAR ================================= */
+  .navbar{
+    position:fixed;top:0;left:0;width:100%;background:var(--bg-dark);box-shadow:var(--shadow);z-index:100;
+  }
+  .navbar nav{
+    max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;
+    padding:.7rem 1rem;              /* altura ~60 px */
+  }
+  /* LOGO navbar */
+.logo{
+    color:#1a1a1a;               /* color normal (ajústalo si quieres) */
+    transition:color .25s ease;  /* suavidad del cambio                */
+    cursor:pointer;              /* mano al pasar el ratón             */
+  }
+  
+  /* efecto hover */
+  .logo:hover{
+    color:#fc05e372;             /* → rosa‑lila muy sutil (≈ 11 % opac.) */
+  }
+  
+  /* --- hamburger --- */
+  .nav-toggle{display:none;background:none;border:0;padding:.25rem;cursor:pointer;z-index:110;}
+  .nav-toggle .hamburger,.nav-toggle .hamburger::before,.nav-toggle .hamburger::after{content:"";display:block;width:1.5rem;height:2px;background:var(--text-dark);transition:.35s;}
+  .nav-toggle .hamburger::before{transform:translateY(-6px);} .nav-toggle .hamburger::after{transform:translateY(4px);}
+  .nav-toggle.open .hamburger{background:transparent;} .nav-toggle.open .hamburger::before{transform:rotate(45deg);} .nav-toggle.open .hamburger::after{transform:rotate(-45deg);} 
+  
+  .nav-links{list-style:none;display:flex;gap:1rem;font-weight:500;transition:opacity .25s;}
+  .nav-links li a:hover{opacity:.7;}
+  
+  @media(max-width:768px){
+    .nav-toggle{display:block;}
+    .nav-links{
+      position:fixed;top:60px;left:0;width:100%;flex-direction:column;align-items:center;gap:1.25rem;
+      background:var(--bg-dark);box-shadow:var(--shadow);max-height:0;overflow:hidden;padding:0;transition:max-height .35s,padding .35s;
+    }
+    .nav-links.open{max-height:320px;padding:1.25rem 0;}
+    .nav-links li{width:100%;text-align:center;}
+    .nav-links li a{display:block;padding:.5rem 0;}
+  }
+  
+  /* ========= HERO / Carrusel principal ============= */
+  .carousel-container{
+    width:100%;height:90vh;overflow:hidden;position:relative;margin-bottom:0.1rem; /* espacio extra debajo */
+  }
+  @media(max-width:430px){.carousel-container{height:65vh;}}
+  
+  .carousel-slide{display:flex;height:100%;transition:transform 1s ease-in-out;}
+  .carousel-slide img{flex:0 0 100%;object-fit:cover;object-position:center;}
+  
+  /* dots */
+  .carousel-dots{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.6rem;z-index:20;}
+  .carousel-dots .dot{appearance:none;-webkit-appearance:none;padding:0;margin:0;width:10px;height:10px;border:2px solid #d5d5d5;background:transparent;border-radius:50%;cursor:pointer;transition:transform .25s;box-sizing:content-box;}
+  .carousel-dots .dot:hover{transform:scale(1.15);} .carousel-dots .dot.active{background:#222;border-color:#222;}
+  
+  .scroll-btn{
+    position:absolute;
+    bottom:4.2rem;            /* coloca el botón por encima de los dots */
+    left:50%;
+    transform:translateX(-50%); /* sólo en X para no alterar la altura */
+    background:#000;
+    color:#fff;
+    padding:.7rem 1.6rem;
+    border:0;
+    font-size:.95rem;
+    cursor:pointer;
+    border-radius:100px;
+    box-shadow:var(--shadow-card);
+    transition:opacity .25s,transform .25s;
+  }
+  .scroll-btn:hover{opacity:.9;transform:translateX(-50%) scale(1.03);}
+  .scroll-btn:hover{opacity:.9;}
+  
+  /* ========= CATEGORIES CAROUSEL =================== */
+  .categories-carousel{--cards-per-view:1;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;scrollbar-width:none;padding:0; margin:0 0 2.5rem;}
+  .categories-carousel{
+    overflow-x:auto;scroll-snap-type:x mandatory;max-width:100vw;padding:1.75rem 0 2rem; /* ↑ mayor espacio sobre y bajo */
+    margin-bottom:1rem;overscroll-behavior-inline:contain;scrollbar-width:none;
+  }
+  .categories-carousel::-webkit-scrollbar{display:none;}
+  
+  .categories-track{display:flex;gap:1rem;padding:0;}
+  .category-card{flex:0 0 clamp(260px,65vw,340px);background:#b08dad00;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:1rem 1rem 1.4rem;scroll-snap-align:start;transition:transform .35s,box-shadow .35s;cursor:pointer;}
+.category-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card-hover);} 
+.category-card img{width:100%;height:220px;max-height:250px;object-fit:cover;border-radius:.6rem;}
+.category-card h3{margin-top:1rem;font-size:1.4rem;font-weight:600;text-align:center;line-height:1;color:#000000;}
+@media(max-width:550px){.category-card{flex:0 0 78vw;padding:.8rem;border-radius:.9rem;} .category-card img{max-height:180px;} .category-card h3{font-size:1.15rem;}}
+
+  
+  /* ========= INTRO COLLECTION ====================== */
+  .intro-collection{text-align:center;max-width:800px;margin:0 auto 1.5rem;padding:1.2rem;color:var(--text-dark);}
+  .intro-subtitle{font-size:1rem;letter-spacing:.15em;text-transform:uppercase;color:#777;}
+  .intro-title{font-size:1.75rem;font-weight:600;margin:.35rem 0 .4rem;}
+  .intro-heading{font-size:2rem;font-weight:600;}
+  
+  /* ========= GALLERY GRID ========================== */
+  .gallery-section{width:75vw;max-width:80vw;margin:0 auto;padding:1rem 0 2rem;}
+  .gallery-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;list-style:none;}
+  .tab-item{font-weight:600;font-size:1rem;color:var(--text-dark);cursor:pointer;position:relative;}
+  .tab-item::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
+  .tab-item:hover,.tab-item.active{color:var(--accent);} .tab-item.active::after{transform:scaleX(1);} .hide{display:none!important;}
+  
+  .gallery-grid{display:grid;gap:1.25rem;padding:0 1rem;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));max-width:100%;margin:0 auto;}
+  @media(min-width:600px){.gallery-grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));}}
+  @media(min-width:992px){.gallery-grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));}}
+  /* ≤ 599 px ─ fuerza 2 columnas */
+@media (max-width:599px){
+    .gallery-grid{
+      grid-template-columns:repeat(2, minmax(0, 1fr)); /* 2 columnas iguales   */
+      gap:1rem;                                         /* separacion opcional  */
+    }
+  }
+  
+  .card{background:var(--bg-dark);border-radius:1rem;overflow:hidden;cursor:pointer;box-shadow:var(--shadow-card);transition:transform .3s,box-shadow .3s;}
+  .card img{width:100%;height:100%;object-fit:cover;} .card:hover{transform:translateY(-6px);box-shadow:0 16px 30px rgba(0,0,0,.1);} 
+  
+  /* ========= FEATURE BANNER ======================== */
+  /* ========= FEATURE BANNER (full‑bleed) ============ */
+  .feature-banner {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    margin: 4rem 0 3rem;
+    min-height: 600px; /* Ajusta la altura */
+  }
+  
+  /* manta de fondo = foto oscurecida */
+  .feature-banner::before{
+    content:"";
+    position:absolute; inset:0;
+    background:url("Imagenes/mom1.png") center/cover no-repeat;
+    filter:brightness(.55);       /* oscurece para texto blanco */
+  }
+  
+  /* rejilla interna que vuelve a un ancho cómodo */
+  .feature-inner{
+    position:relative;            /* para que el texto esté encima */
+    max-width:1200px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1fr;
+  }
+  
+  /* columna con la foto (visible en desktop) */
+  .feature-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* columna texto */
+  .feature-copy{
+    display:flex; flex-direction:column; justify-content:center;
+    gap:1rem; padding:3rem 2.5rem;
+    color:#fff;
+  }
+  
+  .feature-sub   {font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;}
+  .feature-title {font-size:2.1rem;font-weight:700;line-height:1.2;}
+  .feature-text  {font-size:1.05rem;max-width:42ch;line-height:1.5;}
+  
+  /* Botones ya los tienes declarados (.btn-primary / .btn-outline) */
+  
+  @media(max-width:768px){
+    .feature-inner        {grid-template-columns:1fr;}    /* una sola col. */
+    .feature-photo        {min-height:300px;}
+  }
+
+  
+  
+  /* ========= FOOTER ================================= */
+  .footer{background:var(--bg-dark);padding:2rem 1rem;text-align:center;font-size:.9rem;color:#777;}
+  .copy-btn{margin-left:.5rem;padding:.25rem .75rem;font-size:1rem;border:1px solid var(--accent);background:var(--bg-dark);color:var(--accent);border-radius:.4rem;cursor:pointer;transition:.25s;}
+  .copy-btn:hover{background:var(--accent);color:#fff;}
+  
+
+/* ======= CATEGORIES CAROUSEL — páginas completas ======= */
+.categories-carousel{
+    overflow:hidden !important;           /* oculta tarjetas fuera de la página */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 70vw;
+  }
+  /* ==================== FULL‑BLEED PARA EL CARRUSEL ==================== */
+
+  .categories-track{
+    display:flex;
+    gap:1rem;                  /* “gutter” entre tarjetas        */
+    transition:transform .2s ease-in-out;
+    padding: 0 !important;
+  }
+  
+  /* ---- 1 tarjeta ------------------------------------------------ */
+  .category-card{
+    flex:0 0 100%; /* 420 px máx (o el valor que quieras) */
+    width: 100%;
+  }
+  
+  /* ---- 2 tarjetas ---------------------------------------------- */
+  @media (min-width:600px){
+    /* (100 % – gap) / 2  →  caben 2 sin recortes */
+    .category-card{ flex:0 0 calc((100% - 1rem)/2); }
+  }
+  
+  /* ---- 3 tarjetas ---------------------------------------------- */
+  @media (min-width:992px){
+    /* (100 % – 2 × gap) / 3  →  caben 3 sin recortes */
+    .category-card{ flex:0 0 calc((100% - 2rem)/3); }
+  }
+  /* ---- 4 tarjetas ---------------------------------------------- */
+@media (min-width:1200px){
+    /* (100 % – 3 × gap) / 4   →   4 tarjetas sin recortes           */
+    
+    .category-card{ flex:0 0 calc((100% - 3rem)/4); }
+  }
+  
+
+/* ===== ESPACIO LATERAL PARA CARDS EN MÓVIL =================== */
+.categories-wrapper{
+    overflow:hidden;             /* sigue recortando “medias” tarjetas */
+    padding:1.7rem .9rem;             /* aire a ambos lados en móvil */
+    max-width: 70vw;
+    width: 70vw;
+
+  }
+  
+  /* a partir de 600 px quitamos el aire: ya caben ≥ 2 tarjetas */
+  @media (min-width:600px){
+    .categories-wrapper{
+      padding:1.7rem 0;       /* solo top/bottom; 0 laterales      */
+    }
+  }
+
+  .gallery-section{
+    display:flex;               /* flexbox en columna */
+    flex-direction:column;
+    align-items:center;         /* ← todo centrado horizontalmente */
+  }
+  
+  /* ===== BOTÓN VER MÁS / VER MENOS ========================== */
+.show-more-btn{
+    margin-top:1.75rem;         /* espacio sobre el botón */
+    margin-bottom:0;
+    display:inline-flex;        /* conserva padding y hover */
+    justify-content:center;
+    padding:.7rem 2.2rem;
+    font-weight:600;
+    font-size:.95rem;
+    border:2px solid var(--accent);
+    background:var(--bg-light);
+    color:var(--accent);
+    border-radius:4rem;
+    cursor:pointer;
+    transition:.25s;
+  }
+  
+  .show-more-btn:hover{
+    background:var(--accent);
+    color:#fff;
+  }
+
+  
+  /* ===== LIGHTBOX =========================================== */
+.lightbox{
+    position:fixed;
+    inset:0;                       /* top/right/bottom/left = 0 */
+    background:rgba(0,0,0,.8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;                  /* por encima de todo        */
+  }
+  
+  .lightbox img{
+    max-width:90vw;
+    max-height:90vh;
+    border-radius:.5rem;
+    box-shadow:0 8px 24px rgba(0,0,0,.4);
+  }
+  
+  .lightbox .close{
+    position:absolute;
+    top:1rem;
+    right:1.2rem;
+    font-size:2.2rem;
+    font-weight:700;
+    color:#fff;
+    cursor:pointer;
+  }
+  
+  .hidden{ display:none; }
+
+
+  /* --- flechas carrusel de categorías --- */
+  .categories-carousel{
+    position:relative;
+    overflow:visible;      /*  ⟵  ¡ya NO ocultamos aquí!       */
+    width:100%;            /* ocupa todo el ancho */
+  }
+  /* El recorte lateral y el ancho de 70 vw van al wrapper */
+.categories-wrapper{
+    width:70vw; max-width:70vw;
+    margin:0 auto;         /* centrado */
+    overflow:hidden;       /* recorta medias tarjetas */
+    padding:1.7rem .9rem;  /* aire lateral en móvil   */
+  }
+  @media (min-width:600px){
+    .categories-wrapper{ padding:1.7rem 0; }
+  }
+  
+  .cat-btn{
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:#fff; border:none;
+    font-size:1.6rem; line-height:1;
+    padding:.55rem .85rem; border-radius:50%;
+    box-shadow:var(--shadow-card);
+    cursor:pointer; z-index:20;
+    transition:background .25s, transform .25s;
+    margin-inline: .25rem;
+  }
+  .cat-btn:hover{ background:var(--accent); color:#fff;
+                  transform:translateY(-50%) scale(1.08);}
+  /* Flechas – solo cambia estas 2 reglas */
+.cat-prev{
+    left:0;
+    transform:translate(-0%, -50%);   /* ‑50 %  → media anchura */
+  }
+  
+  .cat-next{
+    right:0;
+    transform:translate( 0%, -50%);   /*  50 %  → media anchura */
+  }
+  
+  
+  @media (max-width:600px){
+    .cat-btn{
+      font-size:1.25rem;          /* un poco más chicas      */
+      padding:.45rem .65rem;      /* …y compactas            */
+      top:50%;
+      transform:translateY(-50%); /* centradas en vertical   */
+    }
+  
+    .cat-prev{ left:10px;  }      /* separadas 10px del borde */
+    .cat-next{ right:10px; }      /* idem                    */
+  }
+  
+  /* ─────────── FEATURE BANNER ─────────── */
+
+/* 1️⃣  reglas base – valen para móvil y desktop */
+.feature-banner{
+    position:relative;
+    width:100vw;
+    left:50%; transform:translateX(-50%);
+    overflow:hidden;
+    margin:4rem 0 3rem;
+    min-height:600px;
+  }
+  .feature-banner::before{
+    content:"";
+    position:absolute; inset:0;
+    background:url("Imagenes/mom1.png") center/cover no-repeat;
+    filter:brightness(.55);
+  }
+  .feature-inner{
+    position:relative;
+    max-width:1200px;
+    margin:0 auto;
+    padding-inline:clamp(16px,4vw,60px);   /* aire lateral flexible */
+    display:grid; grid-template-columns:1fr 1fr;
+    column-gap:4rem;
+  }
+  .feature-copy{
+    display:flex; flex-direction:column; justify-content:center;
+    gap:1rem; color:#fff;
+  }
+  .feature-photo{display:flex; justify-content:center; align-items:center;padding-block:clamp(16px, 5vw, 40px);}
+  .feature-photo img{
+    width:90%;                 /* deja 5 % libre a cada lado           */
+    max-width:460px;           /* tope real en pantallas grandes       */
+    height:auto;
+    border-radius:.55rem;
+    box-shadow:0 8px 22px rgba(0,0,0,.25);
+    
+  }
+  
+  /* 2️⃣  MOBILE (≤ 768 px) – una sola columna, foto arriba centrada */
+  @media (max-width:768px){
+    .feature-inner{grid-template-columns:1fr;}
+    .feature-photo img{width:90%; margin:0 auto;}
+    
+  }
+
+  /* Botón base (común) */
+.btn-primary,
+.btn-outline{
+  display:inline-block;
+  padding:.65rem 1.6rem;
+  font-size:1rem;
+  font-weight:600;
+  border-radius:3rem;
+  transition:.25s;
+}
+
+/* Relleno sólido */
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+}
+.btn-primary:hover{opacity:.9;}
+
+/* Borde hueco */
+.btn-outline{
+    background:var(--accent);
+    color:#fff;
+}
+.btn-outline:hover{
+    opacity:.9;
+}
+.btn-group{
+    display:flex;          /* misma línea */
+    gap:1rem;              /* separación */
+    flex-wrap:wrap;        /* saltan abajo si el ancho es pequeño */
+    margin-top:1rem;       /* aire sobre el grupo */
+  }
+  
+  /* ───── AJUSTES EXCLUSIVOS PARA MÓVIL ───── */
+@media (max-width:480px){
+
+    /* 1️⃣  Tipografías un poco más pequeñas */
+    .feature-title{font-size:1.55rem;}   /* antes ~1.9‑2 rem   */
+    .feature-text {font-size:.92rem;}    /* antes 1.05 rem     */
+    .feature-sub  {font-size:.75rem;}    /* antes .9 rem       */
+  
+    /* 2️⃣  Botones lado a lado */
+    .btn-group{
+      display:flex;               /* fila flex               */
+      gap:.6rem;                  /* separación entre ellos  */
+      flex-wrap:wrap;             /* por si falta ancho      */
+      justify-content:center;
+      margin-top:1.2rem;          /* un poco de aire arriba  */
+    }
+    .btn-group a{                 /* los <a> que hacen de botón */
+      flex:1 1 140px;             /* crecen y encogen, min 140 px */
+      text-align:center;
+      padding:.65rem 0;
+    }
+  }
+  
+  /* ───── CERTIFICACIONES ───── */
+.cert-section{
+    max-width:1200px;         /* coincide con ancho de feature‑banner */
+    margin:0 auto 4rem;
+    padding-inline:clamp(16px,4vw,60px);
+    text-align:center;
+  }
+  .cert-title{
+    font-size:2.2rem;
+    font-weight:700;
+    margin-bottom:.25rem;
+  }
+  .cert-sub{
+    font-size:1rem;
+    color:#666;
+    margin-bottom:2rem;
+  }
+  /* grilla estilo “Featured Categories” */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-auto-rows:280px;
+    gap:1.25rem;
+  }
+  .cert-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:.9rem;
+    box-shadow:0 8px 22px rgba(0,0,0,.18);
+    transition:transform .3s, box-shadow .3s;
+  }
+  .cert-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 28px rgba(0,0,0,.18);
+  }
+  .cert-card img{
+    width:100%; height:100%;
+    object-fit:cover;
+  }
+  /* etiqueta centrada */
+  .cert-label{
+    position:absolute;
+    left:50%; top:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(213,166,242,.9);    /* tu color de acento con opacidad */
+    color:#fff;
+    padding:.55rem 1.4rem;
+    font-weight:600;
+    letter-spacing:.04em;
+    border-radius:.3rem;
+    text-transform:uppercase;
+  }
+  
+  /* primera tarjeta = destacada (2 filas) */
+  .cert-card:first-child{
+    grid-row:span 2;
+  }
+  
+  /* ─── Tablet & móvil ─── */
+  @media(max-width:992px){
+    .cert-grid{
+      grid-template-columns:repeat(2,1fr);
+      grid-auto-rows:220px;
+    }
+    .cert-card:first-child{grid-row:span 1;}  /* ya no destaca tanto */
+  }
+  /* ——— móvil ≤ 600 px  ——— */
+@media(max-width:600px){
+    .cert-grid{
+      /* dos columnas iguales */
+      grid-template-columns:repeat(2, 1fr);
+      grid-auto-rows:200px;
+      gap:1rem;
+    }
+  
+    /* la primera tarjeta ocupa las 2 columnas
+       (queda del ancho completo, encima de las demás) */
+    /* la primera tarjeta ocupa las 2 filas (≈400 px)  */
+    .cert-card:first-child{
+        grid-column:1 / -1;  /* ancho completo */
+        grid-row:span 2;     /* ahora usa DOS filas de 200 px */
+        height:auto;         /* sin alto forzado */
+    }
+    
+  }
+  /* === Iconos sociales en el hero ================================= */
+.hero-social{
+    position:absolute;
+    bottom:8.2rem;              /* justo encima del botón */
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:1.2rem;
+    z-index:25;                 /* por encima de la foto */
+  }
+  
+  .hero-social a{
+    width:48px;                 /* tamaño del círculo */
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;           /* tamaño del icono */
+    color:#fff;
+    background:rgba(0,0,0,.55); /* círculo semitransparente */
+    border-radius:50%;
+    backdrop-filter:blur(4px);
+    transition:.25s;
+  }
+  
+  .hero-social a:hover{
+    background:var(--accent);
+    color:#fff;
+  }
+  
+  @media (max-width:430px){
+    .hero-social{bottom:6.5rem;} /* se acerca al botón en pantallas bajas */
+    .hero-social a{width:42px;height:42px;font-size:1.25rem;}
+  }
+  /* --------------------------------------------------
+   Ajuste de espacios en pantallas ≤ 480 px
+-------------------------------------------------- */
+@media (max-width:480px){
+
+    /* 1️⃣  Subimos levemente los iconos */
+    .hero-social{
+      bottom:6.3rem;   /* antes 6.5 rem → gana ~2 rem de aire */
+    }
+  
+    /* 2️⃣  Bajamos el botón de la galería */
+    .scroll-btn{
+      bottom:2.8rem;   /* antes 4.2 rem → queda debajo, sin tocar iconos */
+    }
+  
+    /* 3️⃣  Los dots siguen bien (bottom:1rem) */
+  }
+  /* --------------------------------------------------
+   Iconos sociales – tamaño y espaciado extra‑pequeño
+-------------------------------------------------- */
+@media (max-width:415px){               /* ⇢ teléfonos muy compactos */
+
+    .hero-social{
+      gap:0.9rem;        /* un poco menos de separación */
+      bottom:5.7rem;       /* súbelos 0.5‑1 rem para que sigan
+                            separados del botón «Agendar Cita» */
+    }
+  
+    .hero-social a{
+        width:clamp(34px, 9vw, 48px);
+        height:clamp(34px, 9vw, 48px);
+        font-size:clamp(1rem, 2.8vw, 1.4rem);
+      }
+      
+    .scroll-btn {
+        padding: clamp(0.45rem, 2vw, 0.7rem) clamp(1rem, 4vw, 1.6rem);
+        font-size: clamp(0.8rem, 3vw, 0.95rem);
+    }
+      
+    
+  }
+  
+  
+  /* ────────────── Menos espacio vertical ────────────── */
+@media (max-width:768px) {
+
+    /* 1) Reducir acolchado arriba/abajo de la pista */
+    .categories-wrapper {
+      padding-top: 0.5rem;    /* antes 1.7rem */
+      padding-bottom: 0.4rem; /* agrega un poco de espacio */
+    }
+  
+    /* 2) Reducir margen inferior de toda la sección */
+    .categories-carousel {
+      margin-bottom: 0.5rem;  /* antes 1rem */
+    }
+  
+    /* 3) Acortar distancia entre imagen y título de la card */
+    .category-card h3 {
+      margin-top: 0.5rem;     /* antes 1rem */
+    }
+  }
+  
+  .hero-social .social-icon-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* blanco en fondo oscuro */
+  }
+  .hide {
+    display: none !important;
+  }
+  /* Video en la galería: ocupa todo el card */
+  .gallery-video {
+    width: 100%;             /* ocupa todo el ancho de la card */
+    aspect-ratio: 9/16;      /* relación típica vertical de móvil */
+    object-fit: contain;       /* recorta (sin deformar) si hiciera falta */
+    border-radius: 1rem;
+  }
+  
+  
